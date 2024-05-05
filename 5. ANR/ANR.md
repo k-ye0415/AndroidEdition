@@ -6,7 +6,7 @@
 - ANR 이란 `Application Not Responding` 의 약자이다.
 - Android App 의 UI 스레드가 너무 오랫동안 차단되면 `'ANR(애플리케이션 응답없음)` 오류가 나타나게 된다.
 - 앱이 포그라운드에 있으면 아래와 같은 시스템에서 사용자에게 다이얼로그를 표시한다. (사용자가 ANR 다이얼로그에서 앱을 강제 종류 할 수 있다.)  
-![anr.png](anr.png)
+![anr.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/anr.png)
 
 ### 📌 `ANR` 발생하는 이유?
 >- 입력 전달 타임아웃 : 앱이 입력 이벤트 (ex. 키 누름 또는 화면 터치)에 5초 이내에 응답하지 않는 경우

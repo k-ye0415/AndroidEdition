@@ -217,7 +217,7 @@ class ExampleFragment : Fragment() {
 
 
 ## `DataBinding` 정리
-![data_binding](data_binding_img.png)
+![data_binding](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/data_binding_img.png)
 
 
 

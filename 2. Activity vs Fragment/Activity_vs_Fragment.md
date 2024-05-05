@@ -1,7 +1,7 @@
 # Activity, Fragment의 차이점
 
 [//]: # ([[참고 사이트#1]])
-[//]: # (<img src="img.png" width="300"/>  <br>)
+[//]: # (<img src="activity_fragment_img.png" width="300"/>  <br>)
 
 [//]: # (Activity 가 방안의 바닥이라면, View 라는 가구를 바닥 위에 배치할 수 있다.)
 

@@ -1,6 +1,6 @@
 # Activity, Fragment 의 LifeCycle [[참고 사이트 #1]]
 
-![life_cycle.png](life_cycle.png)
+![life_cycle.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/life_cycle.png)
 <table>
 <tr>
 <td>Activity Comment</td>

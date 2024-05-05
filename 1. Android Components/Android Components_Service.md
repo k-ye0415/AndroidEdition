@@ -207,7 +207,7 @@ bindService(intent, conn, Context.BIND_AUTO_CREATE)
 
 💡 `startService()` 와 `bindService()`의 생명주기
 
-![Alt text](service_image.png)
+![Alt text](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/service_image.png)
 
 ### 🚩 Service 🆚 IntentService [참고 사이트#2]
 
