@@ -124,6 +124,9 @@
     - Activity 의 `finish()` 가 호출 되는 경우
     - 기기 회전, 멀티 윈도우 모드로 인하여 시스템이 일시적으로 Activity를 소멸 시키는 경우
 - `onDestroy()` 를 사용하여 `onStop()` 에서 해재되지 않은 리소스를 해제해야한다.
+- 일반적으로 `onDestroy()`가 호출 되면 App 은 메모리에서부터 없어진다.  
+만약 사용자가 빈번하게 앱을 방문한다면 다시 메모리에 로드 해야하는데 이를 방지하기 위해 안드로이드는 `onDestroy()` 이후에도 메모리를 유지할 수 있다.  
+이를 [`empty process`](https://github.com/k-ye0415/AndroidEdition/blob/f84f7be1622c66340142128f82ddb804a6e5ad96/12.%20Process%20Lifecycle/process_lifecycle.md) 라고 한다. (최대 30분까지 남아 있음.)
 ---
 
 ### Fragment
