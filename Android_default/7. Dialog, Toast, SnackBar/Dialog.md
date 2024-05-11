@@ -1,6 +1,6 @@
 # Dialog [[Android Developer]]
 - `Dialog` 는 사용자에게 추가 정보를 입력 또는 결정을 내릴 때 표시하는 작은 화면을 뜻한다.  
-![dialog_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/dialog_img.png)
+![dialog_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/dialog_img.png)
 - `Dialog` 클래스가 `Dialog`의 기본 클래스이지만, `Dialog` 를 직접 인스턴스화 하는 것은 삼가해야 한다.
   - `AlertDialog` : 제목 한 개, 버튼 최대 세 개, 선택 가능한 항목 목록 또는 맞춤 레이아웃 한 개를 표시할 수 있는 `Dialog` 이다.
   - `DatePickerDialog` 또는 TimePickerDialog : 미리 정의된 UI가 있는 `Dialog`이며, 사용자가 날짜 또는 시간을 선택할 수 있다.
@@ -36,7 +36,7 @@ class StartGameDialogFragment : DialogFragment() {
 
 ### 📌 `Dialog` 빌드
 - `AlertDialog` 클래스를 사용하면 여러 가지 `Dialog` 디자인을 빌드할 수 있다.
-  ![dialog_img_1.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/dialog_img_1.png) 
+  ![dialog_img_1.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/dialog_img_1.png) 
 1. 제목
 - 선택사항이며 콘텐츠 영역에 상세한 메세지, 목록 또는 커스텀 레이아웃이 채워져 있는 경우에만 사용.
 - 단순한 메세지 또는 질문을 나타내야 하는 경우 생략 가능.

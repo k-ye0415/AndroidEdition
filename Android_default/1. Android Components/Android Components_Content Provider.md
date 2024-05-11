@@ -1,7 +1,7 @@
 # Android 4대 컴포넌트
 
 ## 4. Content Provider [[참고 사이트 #1]]
-![img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/provider_img.png)
+![img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/provider_img.png)
 - 데이터를 저장하고, 가져오고, 모든 App에서 접근 할 수 있도록 하는 컴퍼넌트  
   다른 앱의 데이터를 사용하고자 하는 앱에서는 <span style="color:#6495ED">**URI**</span>를 이용하여 콘텐츠 리졸버를 통해 다른 앱의
   Content Provider에게 데이터 요청.  

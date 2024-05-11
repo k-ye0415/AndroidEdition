@@ -76,7 +76,7 @@
 예를 들어 메인스레드, 다른 스레드 두 개 이상의 스레드가 동시에 같은 TextView에 `setText()`를 시도하는 경우
 두 개의 스레드 중 `setText()`가 적용될 지 예측할 수 없고, 사용자는 둘 중 하나의 값만을 볼 수 있어 다른 한 스레드의 결과는 버려진다.
 이와 같이 두 개 이상의 스레드를 사용할 때의 동기화 이슈를 차단하기 위해서 Looper 와 Handler 를 사용한다.  
-![thread_img_1.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/thread_img_1.png)
+![thread_img_1.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/thread_img_1.png)
 
 
 ## 📌 Looper 와 Handler 작동 원리
@@ -84,7 +84,7 @@
 - `Message Queue`는 스레드가 다른 스레드나 혹은 자기 자신으로부터 전달받은 `Message`를 기본적으로 선입선출 형식으로 보관하는 `Queue`이다.
 - Looper 는 `Message Queue`에서 `Message`나 `Runnable` 객체를 차례로 꺼내 `Handler`가 처리하도록 전달한다.
 - `Handler`는 Looper 로 부터 받은 `Message`를 실행, 처리하거나 다른 스레드로부터 메세지를 받아 `Message Queue`에 넣는 역할을 한다.
-  ![thread_img_2.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/thread_img_2.png)
+  ![thread_img_2.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/thread_img_2.png)
 
 ## 📌 Handler
 - Handler 는 스레드의 `Message Queue`와 연계하여 `Message`나 `Runnable` 객체를 받거나 처리하여 스레드 간의 통신을 할 수 있다.
@@ -164,7 +164,7 @@
 - 활성화된 Looper는 `quit()` 나 `quitSafely()`메소드로 중단할 수 있다.
 - `quit()`메소드가 호출되면 Looper 는 즉시 종료되고, `quitSafely()` 메소드가 호출되면 현재 `Message Queue`에 쌓인 메세지들을 처리 한 후 종료한다.
 
-![thread_img_3.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/thread_img_3.png)
+![thread_img_3.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/thread_img_3.png)
 
 ## 📌 Message 와 Runnable
 - Message 란 

@@ -21,7 +21,7 @@
 - 안드로이드 운영체제가 자원을 제대로 관리하기 위해 LRU(Least Recent Used) 캐시라는 캐시에 가장 적게 사용된 어플리케이션을 푸시한다.
 - 애플리케이션이 아주 오랫동안 사용되지 않으면 LRU의 큐로 푸시되어 큐의 맨 앞에 있게 된다.
 - 응용프로그램이 가까운 시간 내에 사용될 경우, 해당 응용프로그램은 대기열의 맨 뒤에 있고, 가장 최근에 사용된 응용프로그램은 대기열의 맨 뒤에 있습니다.
-![process_lifecycle_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/process_lifecycle_img.png)
+![process_lifecycle_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/process_lifecycle_img.png)
 
 
 

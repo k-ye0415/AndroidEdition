@@ -16,7 +16,7 @@
     }
 ```
 - root 를 지정하지 않을 경우 xml 상의 최상위 뷰의 xml layout 설정들은 무시된다.  
-![layoutinflater_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/layoutinflater_img.png)
+![layoutinflater_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/layoutinflater_img.png)
 
 ### 📌 `LayoutInflater` 생성하는 3가지 방법
 1. Context 에서 `LayoutInflater` 를 가져온다.

@@ -1,7 +1,7 @@
 # SnackBar [[Android Developer]]
 - Snackbar 에 작업을 추가하게되면 사용자가 메세지에 응답할 수 있다.  
 
-![snack_bar_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/snack_bar_img.png)
+![snack_bar_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/snack_bar_img.png)
 ```kotlin
 class MyUndoListener : View.OnClickListener {
 

@@ -110,7 +110,7 @@ fun getLock(): Any? {
 ```
 - `@Keep` : 빌드 시 코드가 최적화 될 때 Annotation 이 연결된 요소를 제거하지 않아야 함을 나타낸다.
 - `@OptIn` : Annotation 이 연결된 파일, 선언, 식에서 `opt-in API`를 사용할 수 있다. [[참고사이트 #3]]
-![annotation_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/annotation_img.png)
+![annotation_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/annotation_img.png)
 - `@RequiresOptIn` : 해당 Annotation 이 연결된 요소가 `opt-in API`의 마커임을 나타낸다. 불안정하거나 비표준 API의 일부로 간주되며 해당 요소를 호출하려면 `OptIn`을 사용하거나 `@OptIn` Annotation 을 달아야 한다.
 - `@RequiresApi` : 해당 Annotation 은 `@TargetApi`와 유사하게 지덩된 API레벨 이상에서만 호출되어야 함을 의미하지만, **해당 메소드에 대한 호출자의 요구사항임을 더욱 명확하게 나타낸다.**
 - `@RequirePermission` : 하나 이상의 권한이 필요하거나 필요할 수 있음을 나타내는 Annotation 이다.

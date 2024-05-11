@@ -37,7 +37,7 @@
 
 
 ### 📌 `Application Context` vs `Activity Context`
-![context_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/context_img.png)
+![context_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/context_img.png)
 - Application Context 는 MyApplication, MainActivity1, MainActivity2 모두 사용 가능.
 - MainActivity1 의 Context는 MainActivity1 에서만 사용 가능.
 - MainActivity2 의 Context는 MainActivity2 에서만 사용 가능.

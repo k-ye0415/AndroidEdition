@@ -8,7 +8,7 @@
 
 
 ### 📌 View
-![view_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/view_img.png)
+![view_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/view_img.png)
 - 모든 UI 관련 컴포넌트는 View 를 상속받아 구현된다.
 - View 안에 View 를 포함할 수 있으며, 중첩하여 사용할 수 있다.
 > ✏️ Note
@@ -17,7 +17,7 @@
 
 
 ### 📌 ViewGroup
-![view_group_img.png](https://github.com/k-ye0415/AndroidEdition/blob/main/Android_image/view_group_img.png)
+![view_group_img.png](https://github.com/k-ye0415/AndroidEdition/blob/01661a7148fa349c7a069c781344960f05144165/Android_default/Android_image/view_group_img.png)
 - ViewGroup 은 n개의 View를 포함할 수 있는 Container이다.
 - n개의 View 를 포함하는 ViewGroup도 View를 상속받아 만들어진 클래스이다.
 - ViewGroup 에는 View, ViewGroup이 포함될 수 있으며, ViewGroup은 결국 View를 포함한다.
