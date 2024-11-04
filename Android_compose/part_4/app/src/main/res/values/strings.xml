@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ch03Project</string>
+    <string name="title_activity_button">ButtonActivity</string>
+    <string name="title_activity_modifier">ModifierActivity</string>
+    <string name="title_activity_surface">SurfaceActivity</string>
+    <string name="title_activity_box_with_constraints">BoxWithConstraintsActivity</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="title_activity_network_image">NetworkImageActivity</string>
+    <string name="title_activity_card">CardActivity</string>
 </resources>
