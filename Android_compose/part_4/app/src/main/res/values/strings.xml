@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ch03Project</string>
+    <string name="title_activity_button">ButtonActivity</string>
 </resources>
