@@ -3,4 +3,5 @@
     <string name="title_activity_button">ButtonActivity</string>
     <string name="title_activity_modifier">ModifierActivity</string>
     <string name="title_activity_surface">SurfaceActivity</string>
+    <string name="title_activity_box_with_constraints">BoxWithConstraintsActivity</string>
 </resources>
