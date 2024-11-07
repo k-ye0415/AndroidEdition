@@ -15,17 +15,21 @@
         android:theme="@style/Theme.Ch03Project"
         tools:targetApi="31">
         <activity
-            android:name=".CardActivity"
+            android:name=".CheckboxActivity"
             android:exported="true"
-            android:label="@string/title_activity_card"
+            android:label="@string/title_activity_checkbox"
             android:theme="@style/Theme.Ch03Project">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CardActivity"
+            android:exported="true"
+            android:label="@string/title_activity_card"
+            android:theme="@style/Theme.Ch03Project" />
         <activity
             android:name=".NetworkImageActivity"
             android:exported="true"
