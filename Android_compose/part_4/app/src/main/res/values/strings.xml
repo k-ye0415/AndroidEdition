@@ -7,4 +7,8 @@
     <string name="title_activity_image">ImageActivity</string>
     <string name="title_activity_network_image">NetworkImageActivity</string>
     <string name="title_activity_card">CardActivity</string>
+    <string name="title_activity_checkbox">CheckboxActivity</string>
+    <string name="title_activity_text_field">TextFieldActivity</string>
+    <string name="title_activity_top_app_bar">TopAppBarActivity</string>
+    <string name="title_activity_slot">SlotActivity</string>
 </resources>
