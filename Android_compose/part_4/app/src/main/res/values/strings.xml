@@ -10,4 +10,5 @@
     <string name="title_activity_checkbox">CheckboxActivity</string>
     <string name="title_activity_text_field">TextFieldActivity</string>
     <string name="title_activity_top_app_bar">TopAppBarActivity</string>
+    <string name="title_activity_slot">SlotActivity</string>
 </resources>
