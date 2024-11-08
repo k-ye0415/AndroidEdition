@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ch03Project"
+        tools:targetApi="31">
+        <activity
+            android:name=".CatalogActivity"
+            android:exported="true"
+            android:label="@string/title_activity_catalog"
+            android:theme="@style/Theme.Ch03Project">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ScaffoldActivity"
+            android:exported="true"
+            android:label="@string/title_activity_scaffold"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".SlotActivity"
+            android:exported="true"
+            android:label="@string/title_activity_slot"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".TopAppBarActivity"
+            android:exported="true"
+            android:label="@string/title_activity_top_app_bar"
+            android:theme="@style/Theme.Ch03Project">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TextFieldActivity"
+            android:exported="true"
+            android:label="@string/title_activity_text_field"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".CheckboxActivity"
+            android:exported="true"
+            android:label="@string/title_activity_checkbox"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".CardActivity"
+            android:exported="true"
+            android:label="@string/title_activity_card"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".NetworkImageActivity"
+            android:exported="true"
+            android:label="@string/title_activity_network_image"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".ImageActivity"
+            android:exported="true"
+            android:label="@string/title_activity_image"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".BoxWithConstraintsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_box_with_constraints"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".SurfaceActivity"
+            android:exported="true"
+            android:label="@string/title_activity_surface"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".ModifierActivity"
+            android:exported="true"
+            android:label="@string/title_activity_modifier"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".ButtonActivity"
+            android:exported="true"
+            android:label="@string/title_activity_button"
+            android:theme="@style/Theme.Ch03Project" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Ch03Project" />
+    </application>
+
+</manifest>
