@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ch04Project</string>
+    <string name="title_activity_constrain">ConstrainActivity</string>
 </resources>
