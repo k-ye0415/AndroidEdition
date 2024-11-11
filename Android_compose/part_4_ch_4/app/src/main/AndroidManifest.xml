@@ -13,9 +13,9 @@
         android:theme="@style/Theme.Ch04Project"
         tools:targetApi="31">
         <activity
-            android:name=".ConstrainSetActivity"
+            android:name=".ConstrainChainActivity"
             android:exported="true"
-            android:label="@string/title_activity_constrain"
+            android:label="@string/title_activity_constrain_chain"
             android:theme="@style/Theme.Ch04Project">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConstrainSetActivity"
+            android:exported="true"
+            android:label="@string/title_activity_constrain"
+            android:theme="@style/Theme.Ch04Project" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
