@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,9 +15,9 @@
         android:theme="@style/Theme.Ch04Project"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ConstrainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_constrain"
             android:theme="@style/Theme.Ch04Project">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +25,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConstrainChainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_constrain_chain" />
+        <activity
+            android:name=".ConstrainSetActivity"
+            android:exported="true"
+            android:label="@string/title_activity_constrain"
+            android:theme="@style/Theme.Ch04Project" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Ch04Project" />
     </application>
 
 </manifest>
