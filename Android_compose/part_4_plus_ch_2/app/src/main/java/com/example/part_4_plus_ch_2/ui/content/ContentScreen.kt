@@ -24,7 +24,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.min
 import com.example.part_4_plus_ch_2.R
 import com.example.part_4_plus_ch_2.model.memos
 
@@ -40,7 +39,7 @@ fun ContentScreen(memoId: Int) {
     Box(Modifier.fillMaxSize()) {
         val scroll = rememberScrollState(0)
         Body(scroll)
-        Title(memo.text, scroll.value)
+        Title(memo.text) { scroll.value }
     }
 }
 
@@ -74,7 +73,7 @@ private fun Body(scroll: ScrollState) {
 }
 
 @Composable
-private fun Title(memoText: String, scroll: Int) {
+private fun Title(memoText: String, scrollProvider: () -> Int) {
     val maxOffset = with(LocalDensity.current) { MaxTitleOffset.toPx() }
     val minOffset = with(LocalDensity.current) { MinTitleOffset.toPx() }
 
@@ -82,7 +81,10 @@ private fun Title(memoText: String, scroll: Int) {
         modifier = Modifier
             .heightIn(min = MaxTitleOffset)
             .offset {
-                val offset = (maxOffset - scroll).coerceAtLeast(minOffset)
+                val offset = (maxOffset - scrollProvider()).coerceAtLeast(minOffset)
+                // scroll 이 계속 변하기 때문에 이 부분에서 recomposition 이 생김. 해결 필요.
+                /// 해결 -> 람다 형식으로 변경하여 직접적인 값은 Title 함수를 부르는 곳에서 적용하고,
+                /// UI를 그릴 시점 즉, Comoposition 에서 딱 한번만 그린 후 람다에서 변경 값으로 인해 layout 을 다시 그린다.
                 IntOffset(x = 0, y = offset.toInt())
             }
             .fillMaxWidth()
