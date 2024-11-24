@@ -25,9 +25,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -43,7 +47,7 @@ fun MainScreen(mainState: MainState) {
                 modifier = Modifier.padding(innerPadding),
                 color = MaterialTheme.colorScheme.background
             ) {
-                val memoList = remember { memos }
+                val memoList = remember { memos.sortedBy { it.id }.toMutableStateList() }
                 val onClickAction: (Int) -> Unit = {
                     mainState.showContent(it)
                 }
@@ -60,6 +64,7 @@ fun MainScreen(mainState: MainState) {
 @Composable
 fun AddMemo(memoList: SnapshotStateList<Memo>) {
     val inputValue = remember { mutableStateOf("") }
+    var count by remember { mutableStateOf(0) }
 
     Row(
         modifier = Modifier
@@ -78,12 +83,18 @@ fun AddMemo(memoList: SnapshotStateList<Memo>) {
             onClick = {
                 memoList.add(index = 0, Memo(memoList.size, inputValue.value))
                 inputValue.value = ""
+                count++
             },
             modifier = Modifier
                 .wrapContentWidth()
                 .fillMaxHeight()
         ) {
-            Text("ADD")
+            Text("ADD\n$count")
+            count++ // remember 변수로 선언 되어있는 것에 있어 변화값이 생기면 UI는 recomposition 을 실행한다.
+            // 현재 코드처럼 작성 시 실행 하면 무한 루프가 돈다.
+            // onclick 했을때 count 변화 -> (변경된 내역을 확인 후)Text 의 count 출력
+            // -> count 증가 -> (변경된 내역 (여기서는 onclick 이 아닌 Text 밑 count 증가) 확인 후) Text 의 count 출력
+            // -> 같은 동작 무한 실행
         }
     }
 
@@ -91,11 +102,35 @@ fun AddMemo(memoList: SnapshotStateList<Memo>) {
 
 @Composable
 fun ColumnScope.MemoList(onClickAction: (Int) -> Unit, memoList: SnapshotStateList<Memo>) {
+    // column 을 사용해서 List 를 그릴 때 이런 방식으로도 가능하다.
+    // 중요한 것은 key 라는 키워드를 가지고 모든 list 를 새롭게 그리는 것이 아닌, 새롭게 추가된 부분에 있어서 key 로 mapping 처리 후 해당 item 만 새롭게 그린다.
+//    Column {
+//        for (memo in memoList) {
+//            key(memo.id) {
+//                Card(
+//                    modifier = Modifier
+//                        .height(100.dp)
+//                        .background(Color.White)
+//                        .padding(horizontal = 16.dp, vertical = 8.dp)
+//                        .fillMaxWidth(),
+//                    onClick = {
+//                        onClickAction(memo.id)
+//                    }
+//                ) {
+//                    Text(text = memo.text, modifier = Modifier.fillMaxSize())
+//                }
+//            }
+//        }
+//    }
+    // lazyColumn ㅅㅏ용
     LazyColumn(
         modifier = Modifier
             .weight(1f)
     ) {
-        items(memoList) { memo ->
+        items(
+            items = memoList,
+            key = { it.id }
+        ) { memo ->
             Card(
                 modifier = Modifier
                     .height(100.dp)
