@@ -29,6 +29,7 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -44,7 +45,7 @@ fun MainScreen(mainState: MainState) {
                 modifier = Modifier.padding(innerPadding),
                 color = MaterialTheme.colorScheme.background
             ) {
-                val memoList = remember { memos }
+                val memoList = remember { memos.sortedBy { it.id }.toMutableStateList() }
                 val onClickAction: (Int) -> Unit = {
                     mainState.showContent(it)
                 }
@@ -94,45 +95,45 @@ fun AddMemo(memoList: SnapshotStateList<Memo>) {
 fun ColumnScope.MemoList(onClickAction: (Int) -> Unit, memoList: SnapshotStateList<Memo>) {
     // column 을 사용해서 List 를 그릴 때 이런 방식으로도 가능하다.
     // 중요한 것은 key 라는 키워드를 가지고 모든 list 를 새롭게 그리는 것이 아닌, 새롭게 추가된 부분에 있어서 key 로 mapping 처리 후 해당 item 만 새롭게 그린다.
-    Column {
-        for (memo in memoList) {
-            key(memo.id) {
-                Card(
-                    modifier = Modifier
-                        .height(100.dp)
-                        .background(Color.White)
-                        .padding(horizontal = 16.dp, vertical = 8.dp)
-                        .fillMaxWidth(),
-                    onClick = {
-                        onClickAction(memo.id)
-                    }
-                ) {
-                    Text(text = memo.text, modifier = Modifier.fillMaxSize())
-                }
-            }
-        }
-    }
-    // lazyColumn ㅅㅏ용
-//    LazyColumn(
-//        modifier = Modifier
-//            .weight(1f)
-//    ) {
-//        items(
-//            items = memoList,
-//            key = { it.id }
-//        ) { memo ->
-//            Card(
-//                modifier = Modifier
-//                    .height(100.dp)
-//                    .background(Color.White)
-//                    .padding(horizontal = 16.dp, vertical = 8.dp)
-//                    .fillMaxWidth(),
-//                onClick = {
-//                    onClickAction(memo.id)
+//    Column {
+//        for (memo in memoList) {
+//            key(memo.id) {
+//                Card(
+//                    modifier = Modifier
+//                        .height(100.dp)
+//                        .background(Color.White)
+//                        .padding(horizontal = 16.dp, vertical = 8.dp)
+//                        .fillMaxWidth(),
+//                    onClick = {
+//                        onClickAction(memo.id)
+//                    }
+//                ) {
+//                    Text(text = memo.text, modifier = Modifier.fillMaxSize())
 //                }
-//            ) {
-//                Text(text = memo.text, modifier = Modifier.fillMaxSize())
 //            }
 //        }
 //    }
+    // lazyColumn ㅅㅏ용
+    LazyColumn(
+        modifier = Modifier
+            .weight(1f)
+    ) {
+        items(
+            items = memoList,
+            key = { it.id }
+        ) { memo ->
+            Card(
+                modifier = Modifier
+                    .height(100.dp)
+                    .background(Color.White)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .fillMaxWidth(),
+                onClick = {
+                    onClickAction(memo.id)
+                }
+            ) {
+                Text(text = memo.text, modifier = Modifier.fillMaxSize())
+            }
+        }
+    }
 }
