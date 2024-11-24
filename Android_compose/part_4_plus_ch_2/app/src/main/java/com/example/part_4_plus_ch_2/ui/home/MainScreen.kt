@@ -25,9 +25,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
@@ -62,6 +64,7 @@ fun MainScreen(mainState: MainState) {
 @Composable
 fun AddMemo(memoList: SnapshotStateList<Memo>) {
     val inputValue = remember { mutableStateOf("") }
+    var count by remember { mutableStateOf(0) }
 
     Row(
         modifier = Modifier
@@ -80,12 +83,18 @@ fun AddMemo(memoList: SnapshotStateList<Memo>) {
             onClick = {
                 memoList.add(index = 0, Memo(memoList.size, inputValue.value))
                 inputValue.value = ""
+                count++
             },
             modifier = Modifier
                 .wrapContentWidth()
                 .fillMaxHeight()
         ) {
-            Text("ADD")
+            Text("ADD\n$count")
+            count++ // remember 변수로 선언 되어있는 것에 있어 변화값이 생기면 UI는 recomposition 을 실행한다.
+            // 현재 코드처럼 작성 시 실행 하면 무한 루프가 돈다.
+            // onclick 했을때 count 변화 -> (변경된 내역을 확인 후)Text 의 count 출력
+            // -> count 증가 -> (변경된 내역 (여기서는 onclick 이 아닌 Text 밑 count 증가) 확인 후) Text 의 count 출력
+            // -> 같은 동작 무한 실행
         }
     }
 
