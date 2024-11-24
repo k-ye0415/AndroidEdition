@@ -2,4 +2,5 @@
     <string name="app_name">Ch04Project</string>
     <string name="title_activity_constrain">ConstrainActivity</string>
     <string name="title_activity_constrain_chain">ConstrainChainActivity</string>
+    <string name="title_activity_canvas">CanvasActivity</string>
 </resources>

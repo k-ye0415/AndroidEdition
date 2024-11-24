@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +15,9 @@
         android:theme="@style/Theme.Ch04Project"
         tools:targetApi="31">
         <activity
-            android:name=".ConstrainActivity"
+            android:name=".CanvasActivity"
             android:exported="true"
-            android:label="@string/title_activity_constrain"
+            android:label="@string/title_activity_canvas"
             android:theme="@style/Theme.Ch04Project">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConstrainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_constrain"
+            android:theme="@style/Theme.Ch04Project" />
         <activity
             android:name=".ConstrainChainActivity"
             android:exported="true"
