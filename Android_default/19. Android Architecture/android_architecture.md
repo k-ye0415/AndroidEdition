@@ -63,9 +63,158 @@ UI 레이어의 역할은 화면에 애플리케이션 데이터를 표시하는
 앱에서 처리하는 다양한 유형의 데이터 별로 저장소 클래스를 만들어야 한다.
 
 > - 앱의 나머지 부분에 데이터 노출
-> - 데이터 변ㅕ사항 한 곳에 집중
+> - 데이터 변경사항 한 곳에 집중
 > - 여러 데이터 소스 간의 충돌 해결
 > - 앱의 나머지 부분에서 데이터 소스 추상화
 > - 비즈니스 로직 포함
+
+각 데이터 소스 클래스는 파일, 네트워크 소스, 로컬 데이터베이스와 같은 하나의 데이터 소스만 사용해야 한다.
+데이터 소스 글래스는 데이터 작업을 위해 앱과 시스템 간의 연결 역할을 한다.
+
+
+### 도메인 레이어
+![architecture4](../Android_image/architecture_4.png)
+도메인 레이어는 복잡한 비즈니스 로직이나 여러 ViewModel 에서 재사용되는 간단한 비즈니스 로직의 캡슐화를 담당한다.
+이 레이어는 선택사항임으로 복잡성을 처리하거나 재사용성을 선호하는 등의 필요한 경우에만 사용한다.
+
+> - 코드 중복을 방지
+> - 도메인 레이어 클래스를 사용하는 클래스의 가독성 개선
+> - 앱의 테스트 가능성을 높임
+> - 책임을 분할하여 대형 클래스를 방지
+
+이러한 클래스를 간단하고 가볍게 유지하려면 각 사용 사례에서는 기능 하나만 담당해야 하고 변경 가능한 데이터를 포함해서는 안된다. 대신 개발자가 UI 레이어 또는 데이터 레이어의 변경 가능한 데이터를 처리해야 한다.
+
+
+### UI 레이어, 데이터 레이어, 도메인 레이어의 Sample
+- 데이터 레이어
+```kotlin
+// Repository
+interface UserRepository {
+    suspend fun getUsers(): List<User>
+}
+
+// Repository Implementation
+class UserRepositoryImpl(
+    private val localDataSource: UserDataSource,
+    private val remoteDataSource: UserDataSource
+) : UserRepository {
+    override suspend fun getUsers(): List<User> {
+        val localUsers = localDataSource.getUsers()
+        return if (localUsers.isEmpty()) {
+            val remoteUsers = remoteDataSource.getUsers()
+            localDataSource.saveUsers(remoteUsers) // Cache remote data
+            remoteUsers
+        } else {
+            localUsers
+        }
+    }
+}
+
+// Data Source Interface
+interface UserDataSource {
+    suspend fun getUsers(): List<User>
+    suspend fun saveUsers(users: List<User>)
+}
+
+// Local Data Source
+class LocalUserDataSource : UserDataSource {
+    private val userDatabase = mutableListOf<User>()
+
+    override suspend fun getUsers(): List<User> = userDatabase
+    override suspend fun saveUsers(users: List<User>) {
+        userDatabase.clear()
+        userDatabase.addAll(users)
+    }
+}
+
+// Remote Data Source (Mocked)
+class RemoteUserDataSource : UserDataSource {
+    override suspend fun getUsers(): List<User> = listOf(
+        User("Alice"), User("Bob"), User("Charlie")
+    )
+
+    override suspend fun saveUsers(users: List<User>) {
+        // No-op for remote source
+    }
+}
+
+// User Data Class
+data class User(val name: String)
+```
+
+- 도메인 레이어
+```kotlin
+class FetchUsersUseCase(private val userRepository: UserRepository) {
+    suspend operator fun invoke(): List<User> {
+        return userRepository.getUsers()
+    }
+}
+```
+
+- UI 레이어  
+```kotlin
+ViewModel
+
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+
+class UserViewModel(private val fetchUsersUseCase: FetchUsersUseCase) : ViewModel() {
+    private val _users = MutableStateFlow<List<User>>(emptyList())
+    val users: StateFlow<List<User>> get() = _users
+
+    init {
+        loadUsers()
+    }
+
+    private fun loadUsers() {
+        viewModelScope.launch {
+            val fetchedUsers = fetchUsersUseCase()
+            _users.value = fetchedUsers
+        }
+    }
+}
+```
+
+```kotlin
+UI with Jetpack Compose
+
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+
+@Composable
+fun UserScreen(userViewModel: UserViewModel = viewModel()) {
+    val users by userViewModel.users.collectAsState()
+
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text("User List") })
+        }
+    ) { padding ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            items(users) { user ->
+                Text(
+                    text = user.name,
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+        }
+    }
+}
+```
 
 [참고 사이트](https://everyday-develop-myself.tistory.com/208)
