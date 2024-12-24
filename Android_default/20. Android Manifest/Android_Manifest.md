@@ -83,3 +83,6 @@ Android 4대 컴포넌트들을 사용하고 싶다면 Manifest 에 선언해주
 매니페스트 파일에서 앱에 필요한 하드웨어 또는 스프트웨어 기능을 선언할 수 있다. 또한, 앱과 호환되는 기기 유형도 선언 가능하다. Google Play Store 에서는 앱에 기기 호환성에서 선언한 내용이 충족되지 않은 기기에는 앱 설치를 허용하지 않게 된다.  
 >✏️ AR 기능을 사용하는 앱의 매니페스트에 AR 기능을 지원하는 기기가 필요하다고 선언한다면 AR 기능이 없는 기기는 Goolge Play Store 에서 다운로드 받을 수 없게 된다.
 기기 호환성에는 Android 버전인 SDK 역시 선언할 수 있으나 Android Studio 에서는 `build.gradle` 파일에서 `minSdkVersion` 속성으로 재정의 할 수 있으므로 안드로이드 최소버전 설정은 `build.gradle` 파일에서 하는게 좋다.
+
+
+[참고 자료](https://velog.io/@victorywoo/Android-Manifest%EB%9E%80)
