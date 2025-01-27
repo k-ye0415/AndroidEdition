@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author yejin
+ *
+ */
+module godofjava {
+}
