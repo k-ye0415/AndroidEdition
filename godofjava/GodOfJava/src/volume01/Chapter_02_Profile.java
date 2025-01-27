@@ -1,4 +1,5 @@
-package godofjava;
+package volume01;
+
 /*
  * Chapter02. Hello God Of Java
  * */

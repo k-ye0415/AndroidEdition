@@ -1,8 +1,14 @@
-package godofjava;
+package volume01;
+
 /*
  * Chapter01. 프로그래밍이란 무엇인가?
  * */
 public class Chapter_01_Calculator {
+	
+	public static void main(String[] args) {
+		System.out.println("Chapter_01_Calculator");
+	}
+	
 	public int subtract(int num1, int num2) {
 		return num1 - num2;
 	}

@@ -1,4 +1,5 @@
-package godofjava;
+package volume01;
+
 /*
  * Chapter04. 정보를 어디에 넣고 싶은데
  * */

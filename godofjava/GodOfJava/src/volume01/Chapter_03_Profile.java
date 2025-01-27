@@ -1,4 +1,5 @@
-package godofjava;
+package volume01;
+
 /*
  * Chapter03. 자바를 제대로 알려면 객체가 무엇인지를 알아야 해
  * */

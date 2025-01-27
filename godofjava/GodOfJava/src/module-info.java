@@ -5,5 +5,5 @@
  * @author yejin
  *
  */
-module godofjava {
+module GodOfJava {
 }
