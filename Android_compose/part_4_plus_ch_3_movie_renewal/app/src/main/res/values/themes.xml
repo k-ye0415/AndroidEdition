@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Part_4_plus_ch_3_movie_renewal" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
