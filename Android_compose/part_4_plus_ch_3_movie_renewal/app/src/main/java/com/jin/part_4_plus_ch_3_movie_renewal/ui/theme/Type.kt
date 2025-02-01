@@ -62,7 +62,7 @@ val Typography.h5Title: TextStyle
     )
 
 val Typography.dialogButton: TextStyle
-    @Composable get() = bodyMedium.copy(
+    @Composable get() = bodyLarge.copy(
         fontSize = 18.sp
     )
 
@@ -72,6 +72,6 @@ val Typography.underlinedDialogButton: TextStyle
     )
 
 val Typography.underlinedButton: TextStyle
-    @Composable get() = bodyMedium.copy(
+    @Composable get() = bodyLarge.copy(
         textDecoration = TextDecoration.Underline
     )
